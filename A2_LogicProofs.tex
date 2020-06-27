@@ -1,0 +1,248 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{colortbl}
+\usepackage{color,soul}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{wasysym} % proven symbol
+\usepackage{amssymb} % therefore symbol
+
+\title{Comp 232: Assignment 2}
+\author{Matthew Pan (40135588)}
+\date{May 29th, 2020}
+\titleformat*{\subsection}{\small\bfseries}
+
+\begin{document}
+	\pagecolor{white}
+	\maketitle
+	\setlength{\parindent}{0pt}
+	
+\section*{Quesiton1}
+
+\subsection*{(a)}
+
+\[\begin{array}{lll}%                           % ALIGNMENT INDENT!!
+\quad \textbf{Steps}  &  \textbf{Reason}\\
+1)\, p \rightarrow r  & Premise\\ 
+2)\, q \rightarrow s  & Premise\\
+3)\, \lnot r \land q  & Premise\\
+4)\, q & Simplification \: 3)\\
+5)\, s & Modus \,Ponens \: 2) \, 4)\\
+6)\, s \lor r & Addition \: 5)\: with\: r \; \lhd\
+\end{array}\]
+
+$\hookrightarrow$ \hl{Answer: Valid argument}
+
+\subsection*{(b)}
+
+An argument is valid only if it is impossible for the conclusion to be false when all premises are true. We can see here that it is not the case as when all variables p, q, and r are all assigned true, all three premises are true, however, the conclusion is false since we cannot conclude r is false from the given true premises (r is true).\\
+
+$\hookrightarrow$ \hl{Answer: Invalid argument}
+
+\subsection*{(c)}
+
+\[\begin{array}{lll}%                           % ALIGNMENT INDENT!!
+\quad \textbf{Steps}  &  \textbf{Reason}\\
+1)\, p \rightarrow (q \rightarrow (p \land q)) & Premise\\ 
+2)\, \lnot p \lor ( \lnot q \lor ( p \land q))  & Equivalencies\\
+3)\, p \land q \lor  \lnot p \lor \lnot q & Commutative + Associative \: laws\\
+4)\, \lnot (p \land q ) \rightarrow ( p \rightarrow \lnot q) & Equivalencies \; \lhd\\
+\end{array}\]
+
+$\hookrightarrow$ \hl{Answer: Valid argument}
+
+\subsection*{(d)}
+
+$x \in \{ All \; animals\}$\\
+M(x): x is a mammal\\
+C(x): x is carnivorous\\
+E(x): x eats other animals\\\\
+
+$M(whales)$\\
+$\exists x (M(x) \land C(x))$\\
+$\forall x (C(x) \rightarrow E(x))$\\
+\rule{3.5cm}{0.01cm}\\
+$\therefore \exists x (M(x) \land E(x))$
+
+\[\begin{array}{lll}%                           % ALIGNMENT INDENT!!
+\quad \textbf{Steps}  &  \textbf{Reason}\\
+1)\, \exists x (M(x) \land C(x)) & Premise \\ 
+2)\,  \forall x(C(x) \rightarrow E(x)) & Premise \\
+3)\,  M(c) \land C(c) & Existential \: Instantiation \: 1) \\
+4)\, M(c) & Simplification \: 3)\\
+5)\, C(c) & Simplification \: 3)\\
+6) E(c) & Universal \: Modus \: Ponens \: 2) \: 5)\\
+7) M(c) \land E(c) & Conjunction \: 4) \: 6)\\
+8)\, \exists x (M(x) \land E(x))  & Existential \: Generalization \; \lhd\\
+\end{array}\]
+
+$\hookrightarrow$ \hl{Answer: Valid argument}
+
+\section*{Question 2}
+
+\subsection*{(a) $ ((A \cup B) - (A \cap B) = A) \rightarrow (B = \emptyset) $}
+
+\hl{Proof by cases}: \underline{There are two possible cases for when $B\neq \emptyset$}: $1.\:x \in A\:$ $2.\: x \notin A$\\
+
+1. \underline{$x \in A$}: Proof by Contradiction; assuming $B\neq \emptyset$, thus $x \in B$\\
+
+If $x \in  A$ also, then $x\in (A \cup B)$ and $x \in (A\cap B)$ by definition of union and intersection.\\
+$\hookrightarrow$ We have then reached a contradiction because we have:\\
+$x \notin (A\cup B) - (A\cap B) = A$ by definition of difference, as well as $x\in A.$\\
+
+2. \underline{$x \notin A$}: Proof by Contradiction; assuming $B\neq \emptyset$, thus $x \in B$\\
+
+If $x\notin A$, then $x\in (A\cup B)$ and $x\notin (A\cap B)$ by definition of union and intersection.\\
+$\hookrightarrow$ Again, we have reached a contradiction because this means we have:\\
+$x \in (A\cup B) - (A\cap B) = A$ by definition of difference, as well as $x\notin A.$\\
+
+$\hookrightarrow$ \hl{Both possible cases have proven to be contradictory, therefore the original statement is true and $B = \emptyset$.}
+
+\subsection*{(b) If p is a prime number, then $p^2-1$ is divisible by 2 or 3.}
+
+- By definition of prime numbers, $p > 1$ and p must only be divisible by 1 and itself.\\
+
+- All prime numbers greater than 2 are also by definition odd numbers.\\
+(sub-proof: By definition, an even number can be represented by 2k, where k is some integer. This even number 2k can then be divisible by 2 by definition of even numbers, which contradicts the definition of a prime number stated above unless the number is 2)\\
+\pagebreak
+
+\hl{Proof by Cases}: \underline{There are two possible cases when p is prime}: \\
+
+1. \underline{p is prime number 2}: Direct Proof: \\
+
+$2 \rightarrow ((2^2-1)$ is divisible by 2 or 3)\\
+$2^2-1 = 3$ which is divisible by 3\\
+$\hookrightarrow$ \textbf{Therefore, when p is prime number 2, the conclusion is true.}\\
+
+2. \underline{p is prime number \textgreater $\:$ 2}: Direct Proof:\\
+
+As previously noted, any prime number greater than 2 is odd. And by the definition of odd numbers, all odd numbers can be represented as (2k+1), where k is some integer. Thus:\\
+(p is prime number $> 2) \rightarrow ((2k+1)^2-1$ is divisible by 2 or 3)\\
+\\
+$(2k+1)^2-1\\
+ = 2(2k^2+2k)\\
+ = 2t$, where $t = (2k^2 + 2k)$\\\\
+By definition of even numbers, 2t is an even number, and any even number is divisible by 2.
+$\hookrightarrow$ \textbf{Therefore, the statement is also true for when p is a prime number greater than 2.}\\
+
+$\hookrightarrow$ \hl{Since all possible cases have been considered, and in each case the premise being true led to the conclusion being true, we can conclude that the statement is true.} $\lhd$
+
+\subsection*{(c) $\sqrt 2 + \sqrt 3$ is irrational}
+
+\hl{Proof by Contradiction}: Assuming $\sqrt 2 + \sqrt 3$ is rational.\\
+
+$\circ$ \underline{Definition (1)}: Any rational number n may be represented by $a/b$ where a and b are integers with no common factors and b $\neq$ 0.\\ 
+$\circ$ \underline{Definition (2)}: The square of any rational number is rational: $(a/b)^2 = a^2/b^2$ (its numerator and denominator can be represented by integers t and s as $t/s$, see (1).)\\
+$\circ$ \underline{Definition (3)}: An integer is even if it can be expressed as 2k where k is an integer. As a result, the product of any even number with another integer is also even since its representation can be simplified to 2k. (sub-proof: given some integer a, k; (2k)(a) = 2ka = 2(ka) = 2(t) where t = ka)\\
+\\\smallskip
+Since by (1), $\quad \sqrt 2 + \sqrt 3 = a/b, \quad$ then by (2):\\
+$(\sqrt 2 + \sqrt 3)^2 = 5 + 2\sqrt 6 = a^2 / b^2$, \quad then by isolating square root of 6, we obtain:\\\\
+$\sqrt 6 = (a^2-5b^2)/(2b^2) = x/y$ where x and y replaces the numerator and denominator. We now reach a conclusion where $\sqrt 6$ is rational by (1).\\
+\\
+However, this leads to a contradiction since $\sqrt 6$ is actually irrational. The proof for this is shown:\\\\
+\underline{Proof by Contradiction}: Assuming $\sqrt 6$ is rational, using (1): \\\\
+$\sqrt6 = a/b \Rightarrow 6 = a^2/b^2 \Rightarrow 6b^2 = a^2 \Rightarrow a^2$ is even since it can be expressed as $2(3b^2)$, Thus a is also even by (3) ($a^2 = (a)(a) =$  a or a is even = a is even).
+\\\\
+Similarly, b is also even by (3) because (replacing $a$ by 2k as $a$ is even (3)):\\
+$6b^2 = (2k)^2 \Rightarrow 3b^2 = 2k^2\:$\\
+Since $3b^2$ is even because it equals $2k^2$ which is also even by (3), $b^2$ must also be even by (3) since it's multiplied by 3, which is an odd number ( odd * even = even (3)).\\
+
+Since a and b are both even, by definition of even numbers, they are both divisible by 2. This contradicts the definition of a rational number where a and b must not possess common factors. Therefore, $\sqrt6$ is irrational. This means that $5+2\sqrt 6$ is rational as the addition and multiplication of rational numbers always results in a rational number (they can always be represented as a fraction such that (1) is satisfied.).\\
+
+$\hookrightarrow$ \hl{Since the square of $\sqrt2 + \sqrt3$ is irrational, this leads us to a contradiction when assuming $\sqrt2 + \sqrt3$ is rational by (2). Therefore, the statement is true,  $\sqrt2 + \sqrt3$ is an irrational number.} $\lhd$
+
+\subsection*{(d) The sum of two irrational numbers is irrational.}
+
+This statement is false, a \hl{Disproof by Counterexample} follows:\\
+\\
+Let a: irrational number $\sqrt6$\\
+Let b: irrational number -$\sqrt6$\\
+\\
+Where $a$ is proven to be an irrational number in question (c) by a proof by contradiction, and $b$ is also irrational (as a lemma: if a is irrational, then -a is irrational).
+\\\\
+$a + b = 0$, where 0 is a rational number as it can be represented by $0/b$ by Definition (1) from question (c).\\
+
+$\hookrightarrow$ \hl{Since we have shown that the sum of two irrational numbers can sometimes be rational by a counterexample, the statement is proven to be false.} $\lhd$
+
+\subsection*{(e) The Cartesian product of any set with an empty set is empty set.}
+
+This statement is equivalent to the proposition: \\
+"Let A and B be sets, if B is an empty set, then the Cartesian product of A and B is the empty set."\\
+\\
+\hl{Direct Proof}: Assuming $B = \emptyset$\\
+
+By the definition of the Cartesian product, $A \times B$ is the set of all ordered pairs $(a, b)$:\\
+$A \times B = \{(a,b) \;| \; a \in A \land b \in B\}$ \\
+
+By definition of an empty set, if a given set C is empty, then there is no element c such that $c\in C$\\
+
+Then, if $B = \emptyset$:\\
+$A \times B = \{(a,b) \;| \; a \in A \land b \notin B\}$\\
+$A \times \emptyset = \emptyset$\\
+
+Reasoning:\\
+$\hookrightarrow\,$\hl{Since B is an empty set, by definition of empty set, $b\notin B$, therefore \textbf{there is no pair} $(a, b)$ such that $(a \in A \land b \in B)$ because b is not in B. We can then conclude that Cartesian product results in the empty set since there is no such set.} $\lhd$
+
+
+
+
+\section*{Question 3}
+
+\subsection*{(a) The set of real numbers in the interval [0,1] whose decimal representation contains only 0 and 1 digits.} 
+
+This set is uncountable because it is not possible to enumerate the elements in the set in such a way to ensure no elements are missed out.\\
+
+\underline{Reasoning}:\\
+
+Suppose we have a \textbf{complete, and infinite enumeration} of the set of real numbers in the interval [0,1], whose decimal representation contains only 0 and 1 digits. E.g.:\\
+
+$0,b_{1} b_{3} b_{4}...$\\
+$0,b_{5} b_{2} b_{6}...$\\
+$0,......b_{n}$...\\
+
+Where the $b_{1}, b_{2}$... are the decimal digits 0 or 1.\\
+
+Suppose we let a decimal number be:\\
+0,$(1-b_{1})(1-b_{2})...(1-b_{n})$ where $(1-b_{1}), (1-b_{2})... (1-b_{n})$ are digits representing 0 or 1.\\
+
+It would be impossible to have this number in the list. For example, it could not be the first number because the $b_{1}$ digit would differ, it could not be the second number because the $b_{2}$ digit would differ, etc. It could not be the nth digit because $b_{n}$ would differ.\\
+
+$\hookrightarrow$ \hl{We have concluded that there exists a number that could not be in this supposedly complete enumeration of the set, therefore an enumerated list of this set cannot be complete, and the statement is false; this set is uncountable.}
+
+\subsection*{(b) The set of real numbers in the interval [0,1] whose decimal representation contains a single 1 digit, and all other digits are 0.}
+
+This set is countable, an enumeration of the set is provided:\\
+
+0.100...\\
+0.0100...\\
+0.00100...\\
+...\\
+
+$\hookrightarrow$ \hl{It is possible to provide a complete enumerated list of this set by moving the single digit 1 one position to the right at every number. Thus, this set is countable.}
+
+\pagebreak
+
+\section*{Question 4}
+
+\subsection*{(a) Countably Infnite}
+
+\hl{Let A be the set of all natural numbers with the set of all real numbers between 0 and 1: $\mathbb{N}\cup (0,1)$}\\
+\hl{Let B be the set of all real numbers between 0 and 1: (0,1)}\\
+
+A and B are uncountable sets as they both contain the set of real numbers between 0 and 1, which is an uncountable set as it cannot be enumerated.\\
+
+$A - B = \mathbb{N}$, by the definition of difference.\\
+This is the set of natural numbers which is by definition a countable infinite set as it exhibits a one-to-one correspondence with itself.
+
+\subsection*{(b) Uncountable}
+
+\hl{Let A be the set of real numbers in the interval [0, 2]\\
+Let B be the set of real numbers in the interval (1, 2]}\\
+
+A - B = The set of real numbers in the interval [0, 1], by the definition of difference.\\
+
+The set of real numbers in the interval [0,1] is uncountable as this set cannot be enumerated.\\
+
+\smiley{}
+
+\end{document}

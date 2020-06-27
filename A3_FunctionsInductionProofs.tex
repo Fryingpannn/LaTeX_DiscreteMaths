@@ -1,0 +1,314 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{colortbl}
+\usepackage{color,soul}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{wasysym} % proven symbol
+\usepackage{amssymb} % therefore symbol
+\usepackage{graphicx}
+\usepackage{MnSymbol} % divides symbol
+
+
+\title{Comp 232: Assignment 2}
+\author{Matthew Pan (40135588)}
+\date{June 8th, 2020}
+\titleformat*{\subsection}{\small\bfseries}
+
+\begin{document}
+	\pagecolor{white}
+	\maketitle
+	\setlength{\parindent}{0pt}
+	
+\section*{Question 1}
+
+\subsection*{(a) Give an example of a function from $\mathbb{Z^+}$ to $\mathbb{Z^+}$ that is neither one-to-one nor onto.}
+$\hookrightarrow$ \hl{$f(x) = 20$}\\
+
+- This function is not one-to-one because f takes the same value at all elements of the domain.\\
+
+- This function is not onto because the range and codomain are not equal (e.g.: Range = \{20\} whereas the codomain is $\mathbb{Z^+}$)
+
+\section*{Question 2}
+\subsection*{Draw the Graph}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=15cm]{Graph of Function.png}
+    \label{fig:graph}
+\end{figure}
+
+\section*{Question 3}
+
+\subsection*{(a) is $f$ a function?}
+
+$\hookrightarrow$ \hl{No, $f$ is not a function.}\\\
+
+For $f$ to be a function, every element in the domain must be assigned a value. Here, when $x=10$, it is undefined, but 10 is an element of the domain (real numbers). Thus, since the element 10 is not assigned any element in the codomain, $f$ is not a function.\\
+
+\subsection*{(b) Largest subsets}
+
+$\hookrightarrow$ \hl{Domain = $\mathbb{R}$ $- \{10\}$ and Codomain = $\mathbb{R}$ $- \{-2\}$}\\
+
+The domain consisting of reals without the number 10, and the codomain of reals without the number -2 are the largest subsets of $\mathbb{R}$ which make $f$ a bijection.\\
+
+To find $f^{-1}$:\\
+
+$y = 1/(x-10)-2$\\\
+$y+2 = 1/(x-10)$\\
+$1/(y+2) = x-10$\\
+$1/(y+2) + 10 = x$\\
+
+$\hookrightarrow$ \hl{$f^{-1}(y) = 1/(y+2)+10$}\\
+
+The inverse of f is possible because f is a bijective function with the new given domain and codomain.
+
+\section*{Question 4}
+
+$\lfloor 3x \rfloor = \lfloor x \rfloor + \lfloor x + 1/3 \rfloor + \lfloor x + 2/3 \rfloor$, for all $x \in \mathbb{R}$\\
+
+Let $x = n + \epsilon$, where $0 \leq \epsilon < 1$ and $n \in \mathbb{Z}$\\
+
+$\hookrightarrow$ Proof by cases, there are 3 cases:\\
+
+\hl{Case 1: $\quad 0 \leq \epsilon < 1/3$}\\
+
+$\lfloor 3(n + \epsilon) \rfloor = \lfloor n + \epsilon \rfloor + \lfloor n + \epsilon + 1/3 \rfloor + \lfloor n + \epsilon + 2/3 \rfloor$\\
+
+$3n = n + n + n \quad$ (because $\epsilon < 1/3)$\\
+$3n = 3n \blacktriangleleft$\\
+
+\hl{Case 2: $\quad 1/3 \leq \epsilon < 2/3$}\\
+
+$\lfloor 3(n + \epsilon) \rfloor = \lfloor n + \epsilon \rfloor + \lfloor n + \epsilon + 1/3 \rfloor + \lfloor n + \epsilon + 2/3 \rfloor$\\
+
+$3n +1= n+n+n+1 \quad$ (because $1/3 \leq \epsilon < 2/3$)\\
+$3n+1= 3n+1 \blacktriangleleft$\\\
+
+\hl{Case 3: $\quad 2/3 \leq \epsilon < 1$}\\
+
+$\lfloor 3(n + \epsilon) \rfloor = \lfloor n + \epsilon \rfloor + \lfloor n + \epsilon + 1/3 \rfloor + \lfloor n + \epsilon + 2/3 \rfloor$\\
+
+$3n+2 = n+n+1+n+1 \quad$ (because $\epsilon \geq 2/3$)\\
+$3n+2=3n+2 \blacktriangleleft$\\
+
+$\hookrightarrow$ Since all cases have been shown, the statement has been proven.
+
+\section*{Question 5}
+
+Prove that for all integers $n \geq 0$, the following are divisble by 4.
+
+\subsection*{(a) $n(n^2-1)(n+2)$}
+
+$\hookrightarrow$ Proof by cases,  there are 2 cases:\\
+
+\hl{Case 1: n is even.} Let n = 2k where $k \in \mathbb{N} \quad (\mathbb{N} = \mathbb{Z^+} \cup \{0\})$\\
+
+$=2k((2k)^2-1)(2k+2)$\\
+$=2k(4k^2-1)(2k+2)$\\
+$=(8k^3-2k)(2k+2)$\\
+$=(16k^4+16k^3-4k^2-4k)$\\\
+$=4(4k^4+4k^3-k^2-k)$\\
+$=4t$ where $t \in \mathbb{N}$ and $t=(4k^4+4k^3-k^2-k)$\\
+
+4t is divisible by 4 because it's an integer and a factor of 4. $\blacktriangleleft$\\
+
+\hl{Case 2: n is odd.} Let n = 2k + 1 where $k \in \mathbb{N}$\\
+
+$=(2k+1)((2k+1)^2-1)(2k+1+2)$\\
+$(2k+1)(4k^2+4k)(2k+3)$\\
+$(8k^3+8k^2+4k^2+4k)(2k+3)$\\
+$(8k^3+12k^2+4k)(2k+3)$\\
+$4(4k^3+3k^2+k)(2k+3)$\\
+$=4t$ where $t \in \mathbb{N}$ and $t = (4k^3+3k^2+k)(2k+3)$\\
+
+4t is divisible by 4 because it's an integer and a factor of 4. $\blacktriangleleft$\\
+
+$\hookrightarrow$ Since all cases have been shown, the statement has been proven.
+
+
+\newpage
+\subsection*{(b) $5^n+3$}
+
+Let $P(n): 5^n+3$ is divisible by 4 $\forall n \in \mathbb{N}$\\
+
+\underline{1. Basis step:} P(0) is divisible by 4, $P(0) = 5^0+3 = 1+3 = 4 \blacktriangleleft$\\
+
+\underline{2. Inductive Hypothesis (I.H.):} Assume $P(k)=5^k+3$ is divisible by 4 is true for all k, where $k \in \mathbb{N}$.\\
+
+\underline{3. Inductive Step:} Show that P(k+1) is also true.\\
+
+Proof:\\
+$P(k+1)=5^{k+1} + 3$\\
+$= 5 \times 5^k + 3$\\
+$=4 \times 5^k + 5^k + 3$\\
+
+$\hookrightarrow$ $4\times5^k$ is divisible by 4 because it's a natural number and a factor of 4.\\
+$\hookrightarrow$ $5^k+3$ is divisible by 4 by the inductive hypothesis (P(k)).\\
+
+Let $a = 4\times5^k$, $b = 5^k+3$ and $a+b = P(k+1) = 4 \times 5^k + 5^k + 3$, where $a, b \in \mathbb{N}$\\
+$\hookrightarrow$ if $4 \divides a$ and $4 \divides b$, then $4 \divides a+b$ by basic property of divisibility. Thus, P(k+1) is also true.\\
+
+Therefore, by \hl{mathematical induction}, we have proven the statement.
+
+\section*{Question 6}
+
+Prove:
+
+\subsection*{(a) $\lceil \lceil x/2\rceil /2\rceil = \lceil x/4 \rceil$, for $x \in \mathbb{R}$}
+
+Let $x = n + \epsilon \quad$ where $0 \leq \epsilon < 1$\\
+
+$=\lceil\lceil (n+\epsilon)/2\rceil/2\rceil = \lceil (n+\epsilon)/2 * 1/2\rceil$\\
+
+$\hookrightarrow$ Let $(n+\epsilon)/2 = t + \delta \quad$ where $0 \leq \delta < 1$\\
+
+\hl{Proof by Cases:}\\
+
+\underline{Case 1:} $0 < \delta < 1$\\
+
+$\lceil\lceil t + \delta \rceil/2\rceil = \lceil (t+\delta) / 2 \rceil$\\
+$\lceil (t+1)/2\rceil = \lceil (t + \delta)/2\rceil$ because $0 < \delta < 1$\\
+$\lceil t/2 + 1/2\rceil = \lceil t/2 + \delta /2\rceil$\\
+Equivalent because $0 < \delta < 1$\\
+
+\underline{Case 2:} $\delta = 0$\\
+
+$\lceil\lceil t + \delta \rceil/2\rceil = \lceil (t+\delta) / 2 \rceil$\\
+$\lceil t/2\rceil = \lceil t/2\rceil$ because $\delta = 0 \blacktriangleleft$\\
+\newpage
+
+\subsection*{(b) $n^3 \equiv n$ (mod 3), for $n \in \mathbb{Z^+}$}
+
+Let P(n): $n^3 \equiv n$ (mod 3) for all $n \in \mathbb{Z^+}$.\\
+
+\underline{1. Basis Step:} P(1) is true:\\
+
+$1^3 \equiv 1$ (mod 3)\\
+1 = 1 $\blacktriangleleft$\\
+
+\underline{2. Inductive Hypothesis (I.H.):} Assume P(k): $k^3 \equiv k$ (mod 3) is true for all $k \in \mathbb{Z^+}$.\\
+
+$k^3 \equiv k$ (mod 3)\\
+$k^3-k = 3m$ by definition of congruence, where m is some integer \\
+$k(k^2-1) = 3m$\\
+$k(k+1)(k+2) = 3m$\\
+$k(k+1) = 3(m/(k+2))$\\
+$k(k+1) = 3t$ where $t = m/(k+2)$ and $t \in \mathbb{Z^+}$\\
+
+\underline{3. Inductive Step:} Show that P(k+1) is true\\
+
+Proof:\\
+$(k+1)^3 \equiv k+1$ (mod 3)\\
+$(k+1)^3 - (k+1) = 3b$ by definition of congruence\\
+$k^3+3k^2+2k = 3b$\\
+$k(k^2+3k+2) = 3b$\\
+$k(k+1)(k+2) = 3b$\\
+$3t(k+2) = 3b$ by I.H.\\
+$3b = 3b$ where $b = t(k+2)$ as $b\in \mathbb{Z^+} \blacktriangleleft$\\
+
+By \hl{mathematical induction}, we have proven the statement.\\
+
+\subsection*{(c) $ab \equiv [(a \; mod \; m) \times (b \; mod \; m)]$ (mod m), for all $a, b, m \in \mathbb{Z}$, where $m\geq 2$}
+- Two integers are congruent if and only if they have the same remainder when divided by m.\\
+- Integers $a$ and $b$ are congruent modulo m if and only if there's an integer $k$ such that $a = b + km$\\
+
+\hl{Direct Proof:}\\
+
+We know that:\\
+
+1) $a \equiv (a \; mod \; m)$ (mod m)\\
+2) $b \equiv (b \; mod \; m)$ (mod m) \\
+
+by the definition of congruence modulo $m$ and mod $m$. \\
+(e.g.: $a \; mod \; m = c$, c is always nonnegative and less than m, and thus $c \; mod \; m$ will still be c.)\\
+
+Let $x = a \; mod \; m$  and $y= b\; mod\; m$ , $x,y \in \mathbb{Z}$\\
+
+Then, from 1) and 2): $a = x + km$ and $b = y + tm$ , by the definition of congruence, and $k, t\in \mathbb{Z}$ \\
+
+$ab = (x+km)(y+tm) \quad$ Multiplying a and b\\
+$ab = xy + tmx + kmy +kmtm$\\
+$ab=xy+m(tx+ky+kt)$\\
+$ab=xy+mp \quad$ where $p =(tx+ky+kt)$ and $p\in \mathbb{Z}$\\
+$ab \equiv xy $ (mod m)  $\quad$ by definition of congruence\\
+$ab \equiv [(a \; mod \; m) \times (b \; mod \; m)]$ (mod m) $\quad$ Replacing x and y by their values $\blacktriangleleft$\\
+
+Thus, we have proven the statement.
+
+\section*{Question 7}
+Let P(n): $\sum_{i=1}^{n} 1/(i(i+1)) = 1/2+1/6+1/12+...+1/(n(n+1)) = n/(n+1)$\\
+
+\underline{1. Basis:} P(1) is true: $1/(1+1) = 1/2 = 1/2 \blacktriangleleft$\\
+
+\underline{2. Inductive Hypothesis:} \\
+
+Assume P(k): $\sum_{i=1}^{k} 1/(i(i+1)) = 1/2+1/6+1/12+...+1/(k(k+1)) = k/(k+1)$ is true.\\
+
+\underline{3. Inductive step:} Show P(k+1): $(...) = (k+1)/(k+2)$ is true\\
+
+Proof: adding k+1 to both sides of P(k)\\
+
+$1/2 +1/6+1/12+...+1/(k(k+1))+1/((k+1)(k+2)) = k/(k+1) + 1/((k+1)(k+2))$\\
+
+$= \frac{(k+2)k+1}{(k+1)(k+2)}$\\
+
+$= \frac{k+1}{k+2} \quad \blacktriangleleft$\\
+
+Thus, statement has been proven by \hl{mathematical induction}.
+
+\section*{Question 8}
+
+Let P(n): $5^n +2 \times 11^n$ is divisible by 3, $n\in \mathbb{Z^+}$\\
+
+\underline{1. Basis step:} P(1): $5^1+2\times 11^1 = 27$  which is divisible by 3. $(27/3=9)$\\
+
+\underline{2. Inductive hypothesis (I.H.):} Assume P(k): $5^k+2 \times 11^k$ is divisible by 3 is true, $k\in \mathbb{Z^+}$\\
+
+\underline{3. Inductive step:} Show P(k+1) is true\\
+
+Proof:\\
+
+$5^{k+1}+2 \times 11^{k+1}$\\
+$=5\times 5^k+2\times 11^k \times 11$\\
+$=3 \times 5^k+5^k+5^k+2\times (11^k+ 11^k + 11^k+11^k+11^k+11^k+11^k +11^k+11^k +11^k + 11^k)$\\
+$=(3\times 5^k)+(5^k+2\times 11^k) +(5^k+ 2\times 11^k) + 9(2\times 11^k)$\\
+
+- We know that $3\times5^k$ is divisible by 3 because it's an integer multiple of 3.\\
+- We also know that the two $5^k+2+11^k$ are divisible by 3 by I.H\\
+- Lastly, we know that that $9(2\times 11^k)$ is divisible by 3 because it is an integer multiple of 9, and 9 can be expressed as $3\times3$, therefore also making this number a multiple of 3. \\
+
+$\hookrightarrow$ A sum of numbers which are divisible by 3, is itself divisible by 3 by the basic property of divisibility. Thus, the statement is proven by \hl{mathematical induction}. $\blacktriangleleft$
+
+\section*{Question 9}
+
+Let P(n): $T_{n} < 2^n \quad \forall n \in \mathbb{Z}$, where $T_{n}$ is defined as the  nth Tribonacci sequence, where $T_{1}, T_{2}, T_{3}$ are equal to 1 and $T_{n} = T_{n-1} + T_{n-2} + T_{n-3}$ for $n \geq 4$\\
+
+\underline{1. Basis:} Verifying n = 1, 2, 3, 4.\\
+
+$T_{1} = 1 < 2^1$\\
+$T_{2} = 1 < 2^2 = 4$\\
+$T_{3} = 1 < 2^3 = 8$\\
+$T_{4} = 3 < 2^4 = 16 \quad \blacktriangleleft$\\
+
+\underline{2. Inductive hypothesis (I.H.):} Assuming P(k): $T_{k} < 2^k$ is true where $T_{k}$ is defined the same way as $T_{n}$ above but replacing variable $n$ with $k$.\\
+
+\underline{3. Inductive step:} Show that P(k+1) is true, where $T_{k+1}= T_{k}+T_{k-1}+T_{k-2} < 2^{k+1}$\\
+
+Proof:\\
+
+$T_{k} < 2^k$\\
+$T_{k-1}+T_{k-2}+T_{k-3} < 2^k$ by I.H.\\ 
+
+Adding $T_{k}$  and subtracting $T_{k-3}$ to both sides of P(k):\\
+
+$T_{k}+T_{k-1}+T_{k-2} < 2^k +(T_{k}-T_{k-3}) < 2^k+T_{k} < 2^k+2^k = 2^k \times 2 = 2^{k+1}\quad$  By the inductive hypothesis $\blacktriangleleft$\\
+$T_{k+1} < 2^{k+1}$\\
+
+Thus, the statement has been proven by \hl{mathematical induction}.\\
+
+
+\\
+\smiley{}
+
+\end{document}
